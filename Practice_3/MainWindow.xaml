@@ -1,0 +1,64 @@
+﻿<Window x:Class="Practice_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.13*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="О программе"
+                      Click="About"/>
+
+            <MenuItem Header="Выход"
+                      Click="Exit"/>
+        </Menu>
+
+        <DataGrid x:Name="Table" 
+                  Grid.Row="1" 
+                  Grid.ColumnSpan="2"
+                  Margin="5"/>
+
+
+        <GroupBox Header="Взаимодействие с массивом" 
+                  Grid.Row="2"
+                  Grid.ColumnSpan="2"
+                  Margin="5,0,5,5">
+            <Grid>
+                <TextBox x:Name="RowCount" 
+                         Margin="5,30,673,125"/>
+
+                <TextBox x:Name="ColumnCount" 
+                         Margin="123,30,555,125"/>
+                
+                <Label Content="Кол-во строк"
+                         Margin="5,5,230,140"/>
+
+                <Label Content="Кол-во колонок"
+                         Margin="120,5,515,140"/>
+
+                <Button Content="Создать"
+                         Margin="245,10,410,125"
+                         Click="CreateArray"/>
+
+                <Button x:Name="ClearArray"
+                        Content="Очисить"
+                        Margin="430,34,228,36"
+                        Click="Clear"
+                        IsEnabled = "False"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
