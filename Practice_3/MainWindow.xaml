@@ -65,16 +65,28 @@
                 <Button x:Name="Saving"
                         Content="Сохранить"
                         Click="Save_click"
-                        Margin="505,15,150,99"
+                        Margin="505,15,150,100"
                         IsEnabled="False"/>
 
                 <Button x:Name="Loading"
                         Content="Загрузить"
                         Click="Load_click" 
-                        Margin="505,96,150,15"/>
+                        Margin="505,100,150,15"/>
 
                 <TextBox x:Name="Path"
                          Margin="334,60,285,100"/>
+
+                <Button x:Name="Default"
+                        Content="По умолчанию"
+                        Click="Default_Click"
+                        Margin="644,15,10,100"
+                        IsEnabled="False"/>
+
+                <Button x:Name="Calculating"
+                        Content="Расчитать"
+                        Click="CalculateAnswer"
+                        Margin="644,100,10,15"
+                        IsEnabled="False"/>
             </Grid>
         </GroupBox>
     </Grid>

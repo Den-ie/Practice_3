@@ -40,7 +40,7 @@ namespace Practice_3
             Close();
         }
 
-        Matrix<int> _matrix;
+        Matrix<double> _matrix;
 
         private void CreateArray(object sender, RoutedEventArgs e)
         {
@@ -55,13 +55,15 @@ namespace Practice_3
                 return;
             }
 
-            _matrix = new Matrix<int>(rowcount, columncount);
+            _matrix = new Matrix<double>(rowcount, columncount);
             _matrix.Init();
 
             Table.ItemsSource = _matrix.ToDataTable().DefaultView;
 
             ClearArray.IsEnabled = true;
             Saving.IsEnabled = true;
+            Default.IsEnabled = true;
+            Calculating.IsEnabled = true;
         }
 
         private void Clear(object sender, RoutedEventArgs e)
@@ -83,6 +85,18 @@ namespace Practice_3
         private void Load_click(object sender, RoutedEventArgs e)
         {
             _matrix.Load(Path.Text);
+        }
+
+        private void Default_Click(object sender, RoutedEventArgs e)
+        {
+            _matrix.DefaultInit();
+            Table.ItemsSource = _matrix.ToDataTable().DefaultView;
+        }
+
+        private void CalculateAnswer(object sender, RoutedEventArgs e)
+        {
+            _matrix.Calculate();
+            Table.ItemsSource = _matrix.ToDataTable().DefaultView;
         }
     }
 }

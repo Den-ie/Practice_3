@@ -4,6 +4,7 @@ using System.Data;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using LibMatrix;
+using System.Windows.Media;
 
 namespace LibMatrix
 {
@@ -81,7 +82,19 @@ namespace LibMatrix
             return res;
         }
 
+        public void DefaultInit()
+        {
+            for (int i = 0; i < Row; i++)
+            {
+                for (int j = 0; j < Column; j++)
+                {
+                    _matrix[i, j] = default;
+                }
+            }
+        }
+
         private static readonly BinaryFormatter _formatter = new ();
+        public readonly string Extension = ".matrix";
 
         public void Save(object data, string path)
         {
