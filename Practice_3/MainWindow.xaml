@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice_3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="JoJo no Kimyou na Bouken: Battle Tendency" Height="450" Width="800" Icon="/battle_tendency.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.13*"/>

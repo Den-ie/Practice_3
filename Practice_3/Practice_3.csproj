@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="battle_tendency.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibMatrix\LibMatrix.csproj" />
     <ProjectReference Include="..\Lib_4\Lib_4.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="battle_tendency.png" />
   </ItemGroup>
 
 </Project>
