@@ -81,16 +81,13 @@ namespace LibMatrix
             return res;
         }
 
+        private static readonly BinaryFormatter _formatter = new ();
 
-        public void Save(string path)
+        public void Save(object data, string path)
         {
-            string fullPath = @".\object.matrix";
-            T[,] data = new T[3, 3];
-            BinaryFormatter formatter = new();
-
-            using (FileStream stream = new(fullPath, FileMode.Create))
+            using (FileStream stream = new(path, FileMode.Create))
             {
-                formatter.Serialize(stream, data);
+                _formatter.Serialize(stream, data);
             }
         }
         
@@ -102,7 +99,7 @@ namespace LibMatrix
 
             using (FileStream stream = new(fullPath, FileMode.Open))
             {
-                data = formatter.Deserialize(stream) as T[,];
+                data = _formatter.Deserialize(stream) as T[,];
             }
         }
 

@@ -77,7 +77,7 @@ namespace Practice_3
 
         private void Save_click(object sender, RoutedEventArgs e)
         {
-            _matrix.Save(Path.Text);
+            _matrix.Save(_matrix, Path.Text);
         }
 
         private void Load_click(object sender, RoutedEventArgs e)
