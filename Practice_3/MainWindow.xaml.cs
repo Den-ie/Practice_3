@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Xml;
 using LibMatrix;
 using Lib_4;
+using System.Windows.Automation;
 
 namespace Practice_3
 {
@@ -64,7 +65,11 @@ namespace Practice_3
 
         private void Clear(object sender, RoutedEventArgs e)
         {
+            _matrix.Clear();
+            Table.ItemsSource = null;
 
+            RowCount.Text = null;
+            ColumnCount.Text = null;
         }
     }
 }

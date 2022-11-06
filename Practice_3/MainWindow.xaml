@@ -38,26 +38,30 @@
                   Margin="5,0,5,5">
             <Grid>
                 <TextBox x:Name="RowCount" 
-                         Margin="5,30,673,125"/>
+                         Margin="5,30,635,122"/>
 
                 <TextBox x:Name="ColumnCount" 
-                         Margin="123,30,555,125"/>
-                
+                         Margin="5,103,635,50"/>
+
                 <Label Content="Кол-во строк"
                          Margin="5,5,230,140"/>
 
                 <Label Content="Кол-во колонок"
-                         Margin="120,5,515,140"/>
+                         Margin="5,75,614,67"/>
 
                 <Button Content="Создать"
-                         Margin="245,10,410,125"
+                         Margin="166,15,489,97"
                          Click="CreateArray"/>
 
                 <Button x:Name="ClearArray"
                         Content="Очисить"
-                        Margin="430,34,228,36"
+                        Margin="169,94,489,15"
                         Click="Clear"
                         IsEnabled = "False"/>
+
+                <Button x:Name="Saving"
+                        Content="Сохранить"
+                        Click="Save_click" Margin="310,15,321,97"/>
             </Grid>
         </GroupBox>
     </Grid>
