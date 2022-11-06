@@ -61,6 +61,7 @@ namespace Practice_3
             Table.ItemsSource = _matrix.ToDataTable().DefaultView;
 
             ClearArray.IsEnabled = true;
+            Saving.IsEnabled = true;
         }
 
         private void Clear(object sender, RoutedEventArgs e)
@@ -70,6 +71,18 @@ namespace Practice_3
 
             RowCount.Text = null;
             ColumnCount.Text = null;
+
+            ClearArray.IsEnabled = false;
+        }
+
+        private void Save_click(object sender, RoutedEventArgs e)
+        {
+            _matrix.Save(Path.Text);
+        }
+
+        private void Load_click(object sender, RoutedEventArgs e)
+        {
+            _matrix.Load(Path.Text);
         }
     }
 }

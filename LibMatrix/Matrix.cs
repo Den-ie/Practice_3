@@ -82,15 +82,27 @@ namespace LibMatrix
         }
 
 
-        void Save(string path)
+        public void Save(string path)
         {
             string fullPath = @".\object.matrix";
             T[,] data = new T[3, 3];
             BinaryFormatter formatter = new();
-            //Режим работы с файлом указыается - создание
+
             using (FileStream stream = new(fullPath, FileMode.Create))
             {
                 formatter.Serialize(stream, data);
+            }
+        }
+        
+        public void Load(string path)
+        {
+            string fullPath = @".\object.matrix";
+            T[,] data;
+            BinaryFormatter formatter = new();
+
+            using (FileStream stream = new(fullPath, FileMode.Open))
+            {
+                data = formatter.Deserialize(stream) as T[,];
             }
         }
 
