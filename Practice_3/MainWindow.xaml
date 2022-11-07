@@ -44,10 +44,10 @@
                          Margin="5,100,635,57"/>
 
                 <Label Content="Кол-во строк"
-                         Margin="5,5,230,140"/>
+                         Margin="5,5,635,146"/>
 
                 <Label Content="Кол-во колонок"
-                         Margin="5,75,614,67"/>
+                         Margin="5,75,614,76"/>
 
                 <Button Content="Создать"
                          Margin="170,15,485,97"

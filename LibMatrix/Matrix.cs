@@ -96,6 +96,11 @@ namespace LibMatrix
         private static readonly BinaryFormatter _formatter = new ();
         public readonly string Extension = ".matrix";
 
+        public void Serialize(string path)
+        {
+            Save(_matrix, string.Concat(path));
+        }
+
         public void Save(object data, string path)
         {
             using (FileStream stream = new(path, FileMode.Create))
@@ -106,13 +111,9 @@ namespace LibMatrix
         
         public void Load(string path)
         {
-            string fullPath = @".\object.matrix";
-            T[,] data;
-            BinaryFormatter formatter = new();
-
-            using (FileStream stream = new(fullPath, FileMode.Open))
+            using (FileStream stream = new(path, FileMode.Open))
             {
-                data = _formatter.Deserialize(stream) as T[,];
+                _matrix = _formatter.Deserialize(stream) as T[,];
             }
         }
 

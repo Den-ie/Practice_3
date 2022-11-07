@@ -79,12 +79,12 @@ namespace Practice_3
 
         private void Save_click(object sender, RoutedEventArgs e)
         {
-            _matrix.Save(_matrix, Path.Text);
+            _matrix.Serialize(Path.Text += @"\matrix.txt");
         }
 
         private void Load_click(object sender, RoutedEventArgs e)
-        {
-            _matrix.Load(Path.Text);
+        {   
+            _matrix.Load(Path.Text += @"\matrix.txt");
         }
 
         private void Default_Click(object sender, RoutedEventArgs e)
