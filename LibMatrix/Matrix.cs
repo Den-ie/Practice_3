@@ -14,6 +14,11 @@ namespace LibMatrix
         private int _row;
         private int _column;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="firstcapacity">Кол-во строк</param>
+        /// <param name="secondcapacity">Кол-во колонок</param>
         public Matrix(int firstcapacity, int secondcapacity)
         {
             _matrix = new T[firstcapacity, secondcapacity];
@@ -58,7 +63,11 @@ namespace LibMatrix
                 _column = value;
             }
         }
-
+        
+        /// <summary>
+        /// Вывод в таблицу
+        /// </summary>
+        /// <returns></returns>
         public DataTable ToDataTable()
         {
             var res = new DataTable();
@@ -82,6 +91,9 @@ namespace LibMatrix
             return res;
         }
 
+        /// <summary>
+        /// Устанавливает всем элементам значения по умолчанию
+        /// </summary>
         public void DefaultInit()
         {
             for (int i = 0; i < Row; i++)
@@ -96,6 +108,10 @@ namespace LibMatrix
         private static readonly BinaryFormatter _formatter = new ();
         public readonly string Extension = ".matrix";
 
+        /// <summary>
+        /// Сохранение
+        /// </summary>
+        /// <param name="path">Путь сохранения</param>
         public void Save(string path)
         {
             string fullPath = string.Concat(path, Extension);
@@ -106,6 +122,10 @@ namespace LibMatrix
             }
         }
         
+        /// <summary>
+        /// Загрузка
+        /// </summary>
+        /// <param name="path">Путь загрузки</param>
         public void Load(string path)
         {
             string fullPath = string.Concat(path, Extension);
@@ -116,6 +136,9 @@ namespace LibMatrix
             }
         }
 
+        /// <summary>
+        /// Очистить
+        /// </summary>
         public void Clear()
         {
             Row = _defaultrow;
