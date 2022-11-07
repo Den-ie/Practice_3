@@ -16,6 +16,7 @@ using System.Xml;
 using LibMatrix;
 using Lib_4;
 using System.Windows.Automation;
+using Microsoft.Win32;
 
 namespace Practice_3
 {
@@ -40,7 +41,7 @@ namespace Practice_3
             Close();
         }
 
-        Matrix<double> _matrix;
+        Matrix<double> _matrix = new Matrix<double>(0,0);
 
         private void CreateArray(object sender, RoutedEventArgs e)
         {
@@ -79,12 +80,24 @@ namespace Practice_3
 
         private void Save_click(object sender, RoutedEventArgs e)
         {
-            _matrix.Serialize(Path.Text += @"\matrix.txt");
+            SaveFileDialog saveFileDialog = new();
+            saveFileDialog.DefaultExt = _matrix.Extension;
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                _matrix.Save(saveFileDialog.FileName);
+            }
+
         }
 
         private void Load_click(object sender, RoutedEventArgs e)
-        {   
-            _matrix.Load(Path.Text += @"\matrix.txt");
+        {
+            OpenFileDialog openFileDialog = new();
+            openFileDialog.DefaultExt = _matrix.Extension;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                _matrix.Load(openFileDialog.FileName);
+                Table.ItemsSource = _matrix.ToDataTable().DefaultView;
+            }
         }
 
         private void Default_Click(object sender, RoutedEventArgs e)
